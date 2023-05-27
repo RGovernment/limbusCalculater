@@ -332,7 +332,7 @@
 							remainBonus = remainBonus - remainLevel2Num; // 레벨2 일반 거던 보너스 소모후 남은 보너스 계산
 
 							result += remainBonus * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 F
-							result += (remainLevel1Num - remainBonus) * level1Result.normal; //레벨1 일반 거던 일반 보상 계산 E
+							result += (tryLevel1Num - remainBonus) * level1Result.normal; //레벨1 일반 거던 일반 보상 계산 E
 
 						} else {
 						// 적을 경우
@@ -340,7 +340,7 @@
 							result += remainBonus * level2Result.bonus; //레벨2 일반거던 보너스 보상 D
 							result += remainLevel2Num * level2Result.normal; //레벨2 일반거던 일반 보상 C
 
-							result += remainLevel1Num * level1Result.normal; //레벨1 일반거던 일반 보상 E 
+							result += tryLevel1Num * level1Result.normal; //레벨1 일반거던 일반 보상 E 
 						}
 
 					}
