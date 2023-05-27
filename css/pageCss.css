@@ -511,7 +511,7 @@ input[id="checkBox"]:checked + label::after {
 	align-items: center;
 	transition: 0.1s height ease-in-out;
 }
-.resize{
+.resize2{
 	height: 300px ;
 	transition: 0.1s height ease-in-out;
 }
