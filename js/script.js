@@ -407,7 +407,7 @@
 		    
 		    setTimeout(function () {
 			      $(".calcVal").html(
-			        "<div>배틀패스 경험치<img src='" + imageSrc + "' style='transform:translateY(-10%); height: 35px; margin-left:5px;'/> X " + result + "개 ( "+result/10+"레벨 )</div>"
+			        "<div>배틀패스 경험치<img src='" + imageSrc + "' style='transform:translateY(-10%); height: 35px; margin-left:5px;'/> X " + result + "개 ( "+result/10+"레벨, 파편상자 : "+ ( result / 10 * 3) +"개 )</div>"
 			      );
 			      setTimeout(typingAfterImage, 100, cost, resultMad);
 			    }, delay);
