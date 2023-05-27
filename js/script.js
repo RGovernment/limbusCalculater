@@ -204,7 +204,7 @@
 				let tryLevel1Num = $(".tryLevel1Num").val();
 				let resultMad = 0;
 				if(bonusCk > tryLevel1Num + tryLevel2Num){
-					resultMad = (tryLevel1Num + tryLevel2Num) * madness;
+					resultMad = (parseInt(tryLevel1Num) + parseInt(tryLevel2Num)) * madness;
 				}else{
 					resultMad = bonusCk * madness;	
 				}
