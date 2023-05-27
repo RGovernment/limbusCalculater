@@ -232,7 +232,6 @@
 				} else {
 					cost = (hardCk * level2HardCost) + ((tryLevel2Num - hardCk) * level2Cost) + (tryLevel1Num * level1Cost);
 				}
-				console.log(cost);
 
 				if (hardCk > 0) {
 				//보너스 존재 여부 확인
@@ -240,7 +239,6 @@
 					let remainHardNum = 0;
 					//보너스보다 하드 이용횟수가 많은지 확인
 					if (hardCk > bonusCk) {
-						console.log("AA");
 							remainHardNum = hardCk - bonusCk; // 보너스 소진후 남은 하드 횟수
 							result += remainHardNum	* level2HardResult.normal; // 하드 일반 보상 계산 B
 							result += bonusCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
@@ -274,7 +272,6 @@
 							} else {
 							// 적을 경우
 								result += remainBonus * level2Result.bonus; //레벨2 일반거던 보너스 보상 D
-								console.log("D" + result); 
 								if(remainLevel2Num - remainBonus >= 0){
 									result += (remainLevel2Num - remainBonus) * level2Result.normal; //레벨2 일반거던 일반 보상 C
 								}
