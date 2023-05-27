@@ -244,7 +244,7 @@
 							
 					} else {
 						remainBonus = bonusCk - hardCk; // 보너스가 하드 이용 횟수보다 많을 경우 남은 보너스 계산
-						result += remainBonus * level2HardResult.bonus; // 하드 보너스 보상 계산 A
+						result += hardCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
 					//	console.log("A" + result);
 					}
 						
