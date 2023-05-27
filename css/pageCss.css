@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: "KOTRA_BOLD";
-  src: url("/font/KOTRA_BOLD.ttf") format("truetype");
+  src: url("../font/KOTRA_BOLD.ttf") format("truetype");
   font-weight: normal;
 } 
 @font-face {
   font-family: "ExcelsiorSans";
-  src: url("/font/ExcelsiorSans.ttf") format("truetype");
+  src: url("../font/ExcelsiorSans.ttf") format("truetype");
   font-weight: normal;
 } 
 body{
