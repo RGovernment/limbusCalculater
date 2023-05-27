@@ -348,9 +348,7 @@
 									result += tryLevel1Num * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
 								}else{
 									result += sumNum * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
-								}
-							result += sumNum * level1Result.bonus; 						//레벨1 일반 거던 보너스 보상 계산 F
-							
+								}							
 							if((tryLevel1Num - sumNum) >= 0){
 								result += (tryLevel1Num - sumNum) * level1Result.normal; 		//레벨1 일반거던 일반 보상 E
 							}
