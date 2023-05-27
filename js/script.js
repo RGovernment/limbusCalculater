@@ -187,7 +187,6 @@
 				};
 				$(".tryLevel2Num").val(0);
 				$(".tryLevel1Num").val(0);
-				$("#resultBox").addClass("resize2");
 				$("#resultBox").removeClass("resize");
 				$("#textTitle").text("");
 				$(".calcVal").text("");
@@ -218,7 +217,6 @@
 				
 				let remainLevel2Num = tryLevel2Num - hardCk;
 
-				$("#resultBox").removeClass("resize2");
 				$("#resultBox").addClass("resize");
 
 				let remainBonus = 0;
