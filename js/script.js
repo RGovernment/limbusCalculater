@@ -202,7 +202,12 @@
 				let bonusCk = $(".bonusCk").val();
 				let tryLevel2Num = $(".tryLevel2Num").val();
 				let tryLevel1Num = $(".tryLevel1Num").val();
-				let resultMad = bonusCk * madness;
+				let resultMad = 0;
+				if(bonusCk > tryLevel1Num + tryLevel2Num){
+					resultMad = (tryLevel1Num + tryLevel2Num) * madness;
+				}else{
+					resultMad = bonusCk * madness;	
+				}
 				let sumCk = "N";
 				if ($(".sumCk").is(':checked')) {
 					sumCk = "Y";
