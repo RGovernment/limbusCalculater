@@ -512,11 +512,7 @@ input[id="checkBox"]:checked + label::after {
 	transition: 0.1s height ease-in-out;
 }
 .resize{
-	height: 300px ;
-	transition: 0.1s height ease-in-out;
-}
-.resize2{
-	height: 0px !important;
+	height: 300px !important;
 	transition: 0.1s height ease-in-out;
 }
 .calcVal{
