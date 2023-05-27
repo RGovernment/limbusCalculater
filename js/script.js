@@ -359,7 +359,7 @@
 		let nowLength = 0;
 		let battleText = "배틀패스 경험치";
 		let enkeText = "소모 엔케팔린 모듈 : ";
-		let imageSrc = "/img/배패모양.png";
+		let imageSrc = "img/배패모양.png";
 		let madText =" 획득 광기 : ";
 
 		let makingText = (result, cost, resultMad) => {
