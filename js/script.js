@@ -229,13 +229,13 @@
 				}
 				console.log(cost);
 
-				//레벨2 하드 이용횟수가 존재하는지 확인
 				if (hardCk > 0) {
 				//보너스 존재 여부 확인
 				if (bonusCk > 0) {
 					let remainHardNum = 0;
 					//보너스보다 하드 이용횟수가 많은지 확인
 					if (hardCk > bonusCk) {
+						console.log("AA");
 							remainHardNum = hardCk - bonusCk; // 보너스 소진후 남은 하드 횟수
 							result += remainHardNum	* level2HardResult.normal; // 하드 일반 보상 계산 B
 					//		console.log("B" + result);
@@ -245,7 +245,7 @@
 					} else {
 						remainBonus = bonusCk - hardCk; // 보너스가 하드 이용 횟수보다 많을 경우 남은 보너스 계산
 						result += hardCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
-					//	console.log("A" + result);
+						console.log("A" + result);
 					}
 						
 						
@@ -255,25 +255,34 @@
 							if (remainBonus > remainLevel2Num) {
 
 								result += remainLevel2Num * level2Result.bonus; // 레벨2 일반거던 보너스 보상 계산 D
-							//	console.log("D" + result);
+								console.log("D" + result);
 								remainBonus = remainBonus - remainLevel2Num; // 레벨2 일반 거던 보너스 소모후 남은 보너스 계산
 
-								result += remainBonus * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 F
-							//	console.log("F" + result);
+								if(remainBonus > tryLevel1Num ){
+									result += tryLevel1Num * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
+								}else{
+									result += remainBonus * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
+								}
+								if( remainLevel1Num - remainBonus >= 0){
 								result += (remainLevel1Num - remainBonus) * level2Result.normal; //레벨1 일반 거던 일반 보상 계산 E
-							//	console.log("E" + result);
+								console.log("E" + result);
+							}
+								
 
 							} else {
 							// 적을 경우
 								result += remainBonus * level2Result.bonus; //레벨2 일반거던 보너스 보상 D
-							//	console.log("D" + result); 
-								result += (remainLevel2Num - remainBonus) * level2Result.normal; //레벨2 일반거던 일반 보상 C
-							//	console.log("C" + result);
+								console.log("D" + result); 
+								if(remainLevel2Num - remainBonus >= 0){
+									result += (remainLevel2Num - remainBonus) * level2Result.normal; //레벨2 일반거던 일반 보상 C
+								}
+								
+								console.log("C" + result);
 
 								result += remainBonus * level1Result.bonus; //레벨1 일반거던 보너스 보상 F
-							//	console.log("F" + result);
+								console.log("F" + result);
 								result += tryLevel1Num * level1Result.normal; //레벨1 일반거던 일반 보상 E
-							//	console.log("E" + result);
+								console.log("E" + result);
 
 							}
 
@@ -281,25 +290,35 @@
 						//하드 횟수를 레벨2 거던 횟수에 포함시키지 않았을 경우
 
 							//보너스 횟수가 레벨2 일반거던 횟수보다 많을 경우
-							if (remainBonus > remainLevel2Num) {
-
-								result += remainBonus * level2Result.bonus; //레벨2 일반거던 보너스 보상 계산 D
-							//	console.log("D" + result);
+							if (remainBonus > tryLevel2Num) {
+								
+								result += tryLevel2Num * level2Result.bonus; //레벨2 일반거던 보너스 보상 계산 D
+								console.log("D" + result);
 								remainBonus = remainBonus - tryLevel2Num; //레벨2 일반 거던 보너스 소모후 남은 보너스 계산
-
-								result += remainBonus * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E
-							//	console.log("E" + result);
-								result += (tryLevel1Num - remainBonus) * level1Result.normal; //레벨1 일반 거던 일반 보상 계산 F
-							//	console.log("F" + result);
+								
+								if(remainBonus > tryLevel1Num ){
+									result += tryLevel1Num * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
+								}else{
+									result += remainBonus * level1Result.bonus; //레벨1 일반 거던 보너스 보상 계산 E	
+								}
+								
+								console.log("E" + result);
+								if(tryLevel1Num - remainBonus >= 0){
+									result += (tryLevel1Num - remainBonus) * level1Result.normal; //레벨1 일반 거던 일반 보상 계산 F
+									console.log("F" + result);
+								}
+								
 
 							} else {
 
 								result += remainBonus * level2Result.bonus; //레벨2 일반거던 보너스 보상 계산 D
-							//	console.log("D" + result);
+								console.log("D" + result);
+								if(tryLevel2Num - remainBonus >= 0){
 								result += (tryLevel2Num - remainBonus) * level2Result.normal; //레벨2 일반거던 일반 보상 C
-							//	console.log("C" + result);
+								console.log("C" + result);
+								}
 								result += tryLevel1Num * level1Result.normal; //레벨1 일반 거던 일반 보상 계산 F
-							//	console.log("F" + result);
+								console.log("F" + result);
 
 							}
 
@@ -311,7 +330,9 @@
 
 							//하드 횟수를 레벨2 거던 횟수에 포함시킬 경우
 							if (sumCk === "Y") {
-								result += (remainLevel2Num - hardCk) * level2Result.normal; //레벨2 일반거던 일반 보상 C			
+								if(remainLevel2Num - hardCk >= 0){
+									result += (remainLevel2Num - hardCk) * level2Result.normal; //레벨2 일반거던 일반 보상 C	
+								}
 								result += tryLevel1Num * level1Result.normal; //레벨1 일반거던 일반 보상 E 
 							} else {
 							//아닐 경우
@@ -330,7 +351,7 @@
 						if (bonusCk > tryLevel2Num) {
 						
 							result += tryLevel2Num * level2Result.bonus;					//레벨2 일반거던 보너스 보상 D
-							//console.log("D : " + result);
+							console.log("D : " + result);
 							
 							let sumNum = 0;
 							
@@ -339,22 +360,23 @@
 							}
 
 							result += sumNum * level1Result.bonus; 							//레벨1 일반 거던 보너스 보상 계산 F
-							//console.log("F : " + result);
+							console.log("F : " + result);
 							
 							result += (tryLevel1Num - sumNum) * level1Result.normal; 					//레벨1 일반거던 일반 보상 E
-							//console.log("E : " + result);
+							console.log("E : " + result);
 							
 						} else {
 						// 적을 경우 F 없음
 							
 							result += bonusCk * level2Result.bonus; 					// 레벨2 일반거던 보너스 보상 계산 D
-							//console.log("D : " + result);
-							result += (tryLevel2Num - bonusCk) * level2Result.normal;	// 레벨2 일반거던 일반 보상 계산 C
-							//console.log("C : " + result);
+							console.log("D : " + result);
+							if(tryLevel2Num - bonusCk >= 0){
+								result += (tryLevel2Num - bonusCk) * level2Result.normal;	// 레벨2 일반거던 일반 보상 계산 C	
+							}
+							console.log("C : " + result);
 							result += tryLevel1Num * level1Result.normal; 					//레벨1 일반 거던 일반 보상 계산 E
-							//console.log("E : " + result);
+							console.log("E : " + result);
 						}
-
 					}
 				$("#textTitle").text("");
 				$(".calcVal").text("");
