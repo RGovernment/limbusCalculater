@@ -203,7 +203,7 @@
 				let tryLevel2Num = $(".tryLevel2Num").val();
 				let tryLevel1Num = $(".tryLevel1Num").val();
 				let resultMad = 0;
-				if(bonusCk > parseInt(tryLevel1Num) + parseInt(tryLevel2Num)){
+				if(bonusCk > parseInt(hardCk) + parseInt(tryLevel1Num) + parseInt(tryLevel2Num)){
 					resultMad = (parseInt(hardCk) +parseInt(tryLevel1Num) + parseInt(tryLevel2Num)) * madness;
 				}else{
 					resultMad = bonusCk * madness;	
