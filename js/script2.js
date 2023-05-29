@@ -127,6 +127,7 @@ $(function(){
 				$(".playTotalVal").text("");
 				$(".playHardVal").text("");
 				$(".playlevel1Val").text("");
+				$(".playlevel2Val").text("");
 				$(".useEnkeVal").text("");
 
 		

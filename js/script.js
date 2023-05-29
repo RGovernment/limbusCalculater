@@ -132,6 +132,10 @@ $(function() {
 						$(".btn-grp").removeClass("change4");
 						$(".cautionText").removeClass('change3');
 						$(".cautionText").text("");
+						$("#textTitle").text("");
+						$(".calcVal").text("");
+						$(".enkeVal").text("");
+						$(".madVal").text("");
 						//
 						
 						
@@ -196,6 +200,12 @@ $(function() {
 						$(".input-group2").removeClass('change2');
 						$(".cautionText2").removeClass('change3');
 						$(".cautionText2").text("");
+						$("#textTitle2").text("");	
+						$(".playTotalVal").text("");
+						$(".playHardVal").text("");
+						$(".playlevel1Val").text("");
+						$(".playlevel2Val").text("");
+						$(".useEnkeVal").text("");
 						//
 												
 						nowPageActive = false;
@@ -666,10 +676,7 @@ $(function() {
 			    timeoutBlock += delay;
 			    setTimeout(madTextSet, delay, resultMad);
 			  } else{
-				  setTimeout(function(){
-					calcActive = false;  
-				  },timeoutBlock);		  
-				  timeoutBlock = 0;
+					calcActive = false;
 			  }
 		};
 });
