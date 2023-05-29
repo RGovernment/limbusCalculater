@@ -30,7 +30,7 @@
 		let calcActive = false;
 		let nowPage = 1;
 		let nowPageActive = false;
-		let nowZoom = 1;
+		let nowZoom = 1.5;
 		let firstHardCk = 3;
 		let madness = 250;
 		let level2HardCost = 6;
@@ -254,7 +254,7 @@ $(function() {
 			});
 			
 			$(".resizeBig").on("click",function(){
-				if(nowZoom < 1.25){
+				if(nowZoom < 1.75){
 					nowZoom += 0.25;
 				$('body').css('zoom', '+=0.25');	
 				}else{
