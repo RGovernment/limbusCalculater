@@ -202,7 +202,7 @@ $(function(){
 
 		let actuNeedNum = 0;
 
-		if(0 <= needVal - nowVal){
+		if(0 > needVal - nowVal){
 			return result = {
 								countNum : 0, 
 								cost : 0,
