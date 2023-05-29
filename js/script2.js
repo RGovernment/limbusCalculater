@@ -187,7 +187,7 @@ $(function(){
 							};
 	
 		}
-		console.log(needVal);
+
 		let nowVal = $(".nowFragmentInput").val() != "" ? parseInt($(".nowFragmentInput").val()) : 0;
 		if(0>parseInt($(".nowFragmentInput").val())){
 			return result = {
@@ -199,8 +199,9 @@ $(function(){
 								exp : 0
 							};
 		}
-		console.log(nowVal);
+
 		let actuNeedNum = 0;
+
 		if(0 <= needVal - nowVal){
 			return result = {
 								countNum : 0, 
@@ -211,7 +212,7 @@ $(function(){
 								exp : 0
 							};
 		}
-		
+		actuNeedNum = needVal - nowVal;
 		let hardNum =  parseInt($(".effihardCk").val()) * parseInt(consumWeek);
 		let bonusNum = parseInt($(".boCk").val()) * parseInt(consumWeek);
 		let count = 0;
