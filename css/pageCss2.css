@@ -57,8 +57,6 @@
 }
 
 #boText {
-	transform: translateX(-15%) translateY(18%);
-	display:block;
 	font-size:20px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;
@@ -128,8 +126,6 @@
 }
 
 #boNumber{
-	transform: translateX(40%) translateY(17%);
-	display:block;
 	font-size:22px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;
@@ -168,8 +164,6 @@
 }
 
 #effihardText {
-	transform: translateX(-28%) translateY(18%);
-	display:block;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	font-size:20px;
 	text-shadow: 1px 1px 3px #190800;
@@ -239,8 +233,6 @@
 }
 
 #effihardNumber{
-	transform: translateX(70%) translateY(15%);
-	display:block;
 	font-size:22px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;

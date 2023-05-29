@@ -168,13 +168,23 @@ input[type=number] {
 }
 
 #bonusText {
-	transform: translateX(-15%) translateY(18%);
-	display:block;
 	font-size:20px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;
 	color: #F7DC94;
 }
+#boxTextContainer{
+	
+	padding-top:5px;
+	padding-left:15px;
+	padding-right:15px; 
+	width:100%; 
+	display: flex;
+	justify-content: space-between; 
+	align-items: center;
+	
+}
+
 .off{
 	background-color: #704527 !important;
 	box-shadow: 0px 0px 0px #704527;
@@ -239,8 +249,6 @@ input[type=number] {
 }
 
 #bonusNumber{
-	transform: translateX(40%) translateY(17%);
-	display:block;
 	font-size:22px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;
@@ -279,8 +287,6 @@ input[type=number] {
 }
 
 #hardChanceText {
-	transform: translateX(-28%) translateY(18%);
-	display:block;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	font-size:20px;
 	text-shadow: 1px 1px 3px #190800;
@@ -350,8 +356,6 @@ input[type=number] {
 }
 
 #bonusNumber2{
-	transform: translateX(70%) translateY(15%);
-	display:block;
 	font-size:22px;
 	font-family: 'KOTRA_BOLD', sans-serif;
 	text-shadow: 1px 1px 3px #190800;
