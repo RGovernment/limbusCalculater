@@ -171,7 +171,11 @@ $(function(){
 
 		let needVal = parseInt($(".needFragmentInput").val());
 		let nowVal = parseInt($(".nowFragmentInput").val());
-		let actuNeedNum = needVal - nowVal;
+		let actuNeedNum = 0;
+		if(0 <= needVal - nowVal){
+			 actuNeedNum = needVal - nowVal;	
+		}
+		
 		let hardNum =  parseInt($(".effihardCk").val()) * parseInt(consumWeek);
 		let bonusNum = parseInt($(".boCk").val()) * parseInt(consumWeek);
 		let count = 0;
