@@ -23,7 +23,8 @@
 				'<input type="number" class="consumWeek" id="consumWeek" value="1"/>'+
 				
 			'</div>');
-			
+		$(".calTitle1").html("경험치<br>계산기");
+		$(".calTitle2").html("파편<br>계산기");
 		$(".QnaModal").css("width","70%");
 		$(".QnaModal").css("left","10%");
 	}
@@ -714,10 +715,14 @@ $(function(){
 	});
 	
 	$("#consumWeek").on("keyup",function(event){
-		var regex = /^\d{1,2}$/;
+		let regex = /^\d{1,2}$/;
 
 		if (!regex.test($(this).val())) {
 			$(this).val($(this).val().slice(0,2));
+		}
+		
+		if($(this).val() == 0){
+			$(this).val(1);
 		}
 		
 		 if (event.key === "Enter") {
@@ -734,8 +739,8 @@ $(function(){
 
 	
 	$("#needFrag, #nowFrag").on("keyup",function(event){
-		var regex = /^\d{1,5}$/;
-
+		let regex = /^\d{1,5}$/;
+		
 		if (!regex.test($(this).val())) {
 			$(this).val($(this).val().slice(0,5));
 		}
