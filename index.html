@@ -33,38 +33,71 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/pageCss.css">
+<link rel="stylesheet" href="css/pageCss2.css">
 <head>
 <title>림버스 시즌2 거울 던전 효율 계산기</title>
 
 </head>
 
-
 <body>
-
 <div class="QnaModal">
-<div class="modalContent">
-<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img src="img/doum1.png" style="height: 130px; border-radius: 5px;"></div>
-<div class="limText" style="padding:10px;">주간 보너스 설정 창입니다.<br><br>
+<div class="modalContent" >
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum1.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">주간 보너스 설정 창입니다.<br><br>
 칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.</div> 
-<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img src="img/doum2.png" style="height: 130px; border-radius: 5px;"></div>
-<div class="limText" style="padding:10px;">하드 던전 시행 횟수 설정 창입니다.<br><br>
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum2.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">하드 던전 시행 횟수 설정 창입니다.<br><br>
 칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.</div>
-<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img src="img/doum3.png" style="height: 130px; border-radius: 5px;"></div>
-<div class="limText" style="padding:10px;">
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum3.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
 첫번째 줄은 2번 던전의 수치를 적을 수 있습니다.<br><br>
 두번재 줄은 1번 던전의 수치를 적을 수 있습니다.
 </div>
-<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img src="img/doum4.png" style="height: 70px; border-radius: 5px;"></div>
-<div class="limText" style="padding:10px;">
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum4.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
 하드던전을 2번 던전의 플레이 횟수에 포함할 것인가에 대한 여부를 정할 수 있습니다.<br><br>
+기본적으로 비활성화 되어있습니다.
+</div>
+</div>
+<div class="modalContent2" style="display: none;">
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum1.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">주간 보너스 설정 창입니다.<br><br>
+칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.</div> 
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum2.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">하드 던전 시행 횟수 설정 창입니다.<br><br>
+칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.</div>
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum5.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
+첫번째 줄은 요구하는 파편의 숫자를 적을 수 있습니다.<br><br>
+두번재 줄은 현재 소유중인 파편의 갯수를 적을 수 있습니다.<br><br>
+세번째 줄은 파편 획득을 위해 소모할 예상 주차를 적을 수 있습니다.
+</div>
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum6.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
+상자에서 등장하는 파편이 몇개일지 정할 수 있습니다.<br><br>
+공식에서 공개의 확률의 평균값은 상자당 2개입니다.
+</div>
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum7.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
+파편작을 레벨1 거울 던전으로 진행했을 경우로 가정합니다.<br><br>
 기본적으로 비활성화 되어있습니다.
 </div>
 </div>
 </div>
 
 <div class="borderCon">
-	<div class="boxCon">
-	<div class="row" style="width: 100%"><div class="col-6"><button type="button" class="limBtn resizeBig">확대</button><button type="button" class="limBtn resizeSmall" >축소</button></div><div class="col-6" style="text-align: end;"><button type="button" class="limBtn QBtn">도움말</button></div></div>
+<div class="boxCon" >
+	<div class="limText warningText" style="padding:15p; text-align:center;display:none;">※ 이 페이지는 PC web에 최적화되어있습니다. 특정 부분의 가시성이 저하될 수 있으니 참고하시길 바랍니다.</div>
+	<div class="row" style="width: 100%">
+		<div class="col-6">
+			<button type="button" class="limBtn resizeBig">확대</button>
+			<button type="button" class="limBtn resizeSmall" >축소</button>
+		</div>
+		<div class="col-6" style="text-align: end;">
+			<button type="button" class="limBtn changeBtn">전환</button>
+			<button type="button" class="limBtn QBtn">도움말</button>
+		</div>
+	</div>
 		<div class="flexContainer">
 			<div id="bonusBox">
 				<div id="bonusText">주간 보너스 횟수</div><div id="bonusNumber">3/3</div>
@@ -98,16 +131,17 @@
 		<input type="number"  class="bonusCk" hidden="hidden" value=3 />
 		<br>
 		<div style="display: flex; justify-content: center;">
-		<div class="row input-group">
-		<div >
-		<label class="twoLabel" for="two">던전 2 시행횟수 </label><input type="number" value=0 id="two" class="tryLevel2Num" /> 
-		하드 횟수를 수치에 포함 <input class="sumCk" id="checkBox" type="checkbox" hidden=""/>
-		 <label for="checkBox" style="top: 50%; transform: translateY(-75%);"></label>
-		</div> 
-		<br> 
-		<div>
-		<label class="oneLabel"for="one">던전 1 시행횟수 </label><input type="number" id="one" value=0 class="tryLevel1Num" />
-		</div>
+			<div class="row input-group">
+				<div>
+					<label class="twoLabel" for="two">던전 2 시행횟수 </label>
+					<input type="number" value=0 id="two" class="tryLevel2Num" /> 
+					하드 횟수를 수치에 포함 <input class="sumCk" id="checkBox" type="checkbox" hidden=""/><label for="checkBox" style="top: 50%; transform: translateY(-75%);"></label>
+				</div> 
+			<br> 
+				<div>
+					<label class="oneLabel"for="one">던전 1 시행횟수 </label>
+					<input type="number" id="one" value=0 class="tryLevel1Num" />
+				</div>
 			</div>
 		</div>
 		<br>
@@ -127,12 +161,98 @@
 		</div>
 		</div>
 	</div>
+	
+	<!-- 통상 계산기 end -->
+	<!-- 특수 계산기 start -->
+<div class="boxCon2" style="display:none;">
+<div class="limText warningText" style="padding:15p; text-align:center; display:none;">※ 이 페이지는 PC web에 최적화되어있습니다. 특정 부분의 가시성이 저하될 수 있으니 참고하시길 바랍니다.</div>
+	<div class="row" style="width: 100%">
+		<div class="col-6">
+			<button type="button" class="limBtn resizeBig">확대</button>
+			<button type="button" class="limBtn resizeSmall" >축소</button>
+		</div>
+		<div class="col-6" style="text-align: end;">
+			<button type="button" class="limBtn changeBtn">전환</button>
+			<button type="button" class="limBtn QBtn">도움말</button>
+		</div>
+	</div>
+	<div class="flexContainer2">
+			<div id="boBox">
+				<div id="boText">주간 보너스 횟수</div><div id="boNumber">3/3</div>
+				<div id="boContainer">
+					<button type="button" class="boBtn1" data-val="1"></button>
+					<button type="button" class="boBtn2" data-val="2"></button>
+					<button type="button" class="boBtn3" data-val="3"></button>
+				</div>
+			</div>
+			<div id="boZero">
+				<button type="button" class="boBtn0" data-val="0">보너스 없음</button>
+			</div>
+		</div>
+	<div class="flexContainer2">
+		<div id="effihardBox">
+			<div id="effihardText">하드던전 횟수</div><div id="effihardNumber">3/3</div>
+			<div id="effihardContainer">
+				<button type="button" class="effihardBtn1" data-val="1"></button>
+				<button type="button" class="effihardBtn2" data-val="2"></button>
+				<button type="button" class="effihardBtn3" data-val="3"></button>
+			</div>
+		</div>
+		<div id="effihardZero">
+			<button type="button" class="effihardBtn0" data-val="0">보너스 없음</button>
+		</div>
+	</div>
+	<div class="limText cautionText2" style="font-size:20px ;height:35px;width: 100%;text-align: center; margin-top: 20px;margin-bottom: 20px;">Hello, World!</div>
+	<div class="limText">
+	<input type="number"  class="effihardCk" hidden="hidden" value=3 />
+	<input type="number"  class="boCk" hidden="hidden" value=3 />
+	<br>
+	<div style="display: flex; justify-content: center;">
+		<div class="row input-group2" style="padding-left:15px;">
+			<div>
+				<label class="needFragLabel" for="needFrag">요구 파편 수량 </label>
+				<input type="number" class="needFragmentInput" id="needFrag" value="400"/>
+				<span>상자를 파편 </span> <span style="padding-left: 3px;">1개 취급</span> <input class="costCk" id="fragCountBox1" type="checkbox" value=1 hidden="" /><label for="fragCountBox1" style="top: 50%; transform: translateY(-75%); margin-right:15px"></label>
+				레벨1 던전만 진행 <input class="levelCk" id="levelBox" type="checkbox" hidden=""/><label for="levelBox" style="top: 50%; transform: translateY(-75%);"></label>
+			</div>
+			
+			<br>
+			<div>
+				<label class="nowFragLabel" for="nowFrag">현재 파편 수량 </label>
+				<input type="number" class="nowFragmentInput" id="nowFrag" value="0"/>
+				상자를 파편 2개 취급 <input class="costCk" id="fragCountBox2" type="checkbox" value=2 hidden="" checked="checked"/><label for="fragCountBox2" style="top: 50%; transform: translateY(-75%);"></label>
+			</div>
+			<div>
+				<label class="consumWeekLabel" for="consumWeek">소모 주간</label>
+				<input type="number" class="consumWeek" id="consumWeek" value="1"/>
+				상자를 파편 3개 취급 <input class="costCk" id="fragCountBox3" type="checkbox" value=3 hidden=""/><label for="fragCountBox3" style="top: 50%; transform: translateY(-75%);"></label>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="btn-grp2">
+		<button type="button" class="limBtn resetButton2">초기화</button>
+		<button type="button" class="limBtn resultButton2">계산</button>	
+	</div>
+	</div>
+	
+	<div id="resultBox2">
+		<div style='font-size:35px' id="textTitle2"></div>
+		<div class="playTotalVal"></div>
+		<div class="playHardVal"></div>
+		<div class="playlevel2Val"></div>
+		<div class="playlevel1Val"></div>
+		<div class="useEnkeVal"></div>
+	</div>
+	
+	</div>
+
 </div>
 	<script type="text/javascript" src="js/script.js"></script>
-
-
+	<script type="text/javascript" src="js/script2.js"></script>
 </body>
 </html>
+
 
 
 
