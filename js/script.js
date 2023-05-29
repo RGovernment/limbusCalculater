@@ -710,9 +710,6 @@ $(function(){
 		 if (event.key === "Enter") {
    			 event.preventDefault();
 		
-		    let inputValue = $(this).val();
-		    console.log("입력 값:", inputValue);
-		
 			$(".resultButton").trigger("click");
 			
 		   
@@ -734,9 +731,6 @@ $(function(){
 		 if (event.key === "Enter") {
    			 event.preventDefault();
 		
-		    let inputValue = $(this).val();
-		    console.log("입력 값:", inputValue);
-		
 			$(".resultButton2").trigger("click");
 		   
 		  }
@@ -753,10 +747,7 @@ $(function(){
 		
 			 if (event.key === "Enter") {
    			 event.preventDefault();
-		
-		    let inputValue = $(this).val();
-		    console.log("입력 값:", inputValue);
-		
+
 			$(".resultButton2").trigger("click");
 		   
 		  }
