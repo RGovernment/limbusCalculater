@@ -92,7 +92,7 @@ $(function(){
 	});	
 	
 	$("button[class^=effihardBtn]").on("click", function() {
-		$(".effihardNum").val(parseInt($(this).data("val")));
+		$(".effihardCk").val(parseInt($(this).data("val")));
 	});
 		
 	$(".costCk").on("click",function(){
