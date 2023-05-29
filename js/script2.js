@@ -139,6 +139,12 @@ $(function(){
 			return;
 		}
 		
+		$("#textTitle2").text("");	
+		$(".playTotalVal").text("");
+		$(".playHardVal").text("");
+		$(".playlevel1Val").text("");
+		$(".useEnkeVal").text("");
+		
 		if($(".levelCk").is(":checked")){
 			$(".playHardVal").hide();
 			$(".playlevel2Val").hide();
@@ -150,7 +156,11 @@ $(function(){
 		}
 		
 		calcActive2 = true;
-		let week = parseInt($(".consumWeek").val());
+		
+		let week = $(".consumWeek").val() != "" ? parseInt($(".consumWeek").val()) : 1;
+		if(0 > week){
+				week = 1;
+		}
 		let value = calcEffi(costCk,week);
 
 		$("#resultBox2").addClass("resize2");
@@ -162,18 +172,44 @@ $(function(){
 	});
 	
 	let calcEffi = (simulCost,consumWeek) => {
-		
-		$("#textTitle2").text("");	
-		$(".playTotalVal").text("");
-		$(".playHardVal").text("");
-		$(".playlevel1Val").text("");
-		$(".useEnkeVal").text("");
-
-		let needVal = parseInt($(".needFragmentInput").val());
-		let nowVal = parseInt($(".nowFragmentInput").val());
+	
+		let result = {};
+	
+		let needVal = $(".needFragmentInput").val() != "" ? parseInt($(".needFragmentInput").val()) : 0;
+		if(0 > parseInt($(".needFragmentInput").val())){
+			return result = {
+								countNum : 0, 
+								cost : 0,
+								hard : 0,
+								level2 : 0,
+								level1 : 0,
+								exp : 0
+							};
+	
+		}
+		console.log(needVal);
+		let nowVal = $(".nowFragmentInput").val() != "" ? parseInt($(".nowFragmentInput").val()) : 0;
+		if(0>parseInt($(".nowFragmentInput").val())){
+			return result = {
+								countNum : 0, 
+								cost : 0,
+								hard : 0,
+								level2 : 0,
+								level1 : 0,
+								exp : 0
+							};
+		}
+		console.log(nowVal);
 		let actuNeedNum = 0;
 		if(0 <= needVal - nowVal){
-			 actuNeedNum = needVal - nowVal;	
+			return result = {
+								countNum : 0, 
+								cost : 0,
+								hard : 0,
+								level2 : 0,
+								level1 : 0,
+								exp : 0
+							};
 		}
 		
 		let hardNum =  parseInt($(".effihardCk").val()) * parseInt(consumWeek);
@@ -183,7 +219,7 @@ $(function(){
 		let needExp = needBox * 10;
 		let nowExp = 0;
 		let needCost = 0;
-		let result = {};
+		
 		let playHard = 0;
 		let playLevel2 = 0;
 		let playLevel1 = 0;

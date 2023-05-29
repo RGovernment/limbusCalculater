@@ -411,8 +411,14 @@ $(function() {
 				let result = 0;
 				let hardCk = $(".hardCk").val();
 				let bonusCk = $(".bonusCk").val();
-				let tryLevel2Num = $(".tryLevel2Num").val();
-				let tryLevel1Num = $(".tryLevel1Num").val();
+				let tryLevel2Num = $(".tryLevel2Num").val() != "" ? parseInt($(".tryLevel2Num").val()) : 0;
+				if(tryLevel2Num < 0 ){
+					return;
+				}
+				let tryLevel1Num = $(".tryLevel1Num").val() != "" ? parseInt($(".tryLevel1Num").val()) : 0;
+				if(tryLevel1Num < 0 ){
+					return;
+				}
 				let resultMad = 0;
 				if(bonusCk > parseInt(hardCk) + parseInt(tryLevel1Num) + parseInt(tryLevel2Num)){
 					resultMad = (parseInt(hardCk) +parseInt(tryLevel1Num) + parseInt(tryLevel2Num)) * madness;
