@@ -457,11 +457,11 @@ $(function(){
 
 		let makingText = (value) => {
 
-			totalText = "거울 던전 총 횟수 : " + value.countNum +"회 ( 획득 예상 경험치 : "+ value.exp.toLocaleString('ko-KR') +" )";
+			totalText = "거던 총 플레이 횟수 : " + value.countNum +"회 ( 예상 획득 경험치 : "+ value.exp.toLocaleString('ko-KR') +" )";
 			hardText = "하드 던전 플레이 횟수 : " + value.hard +"회";
 			level2Text = "2렙 던전 플레이 횟수 : " + value.level2 + "회";
 			level1Text = "1렙 던전 플레이 횟수 : " + value.level1 + "회";
-			enkeText = "소모 엔케팔린 모듈 : " + value.cost + "개";
+			enkeText = "엔케팔린 모듈 소모량 : " + value.cost + "개";
 			
 			let typingTextTitle = $("#textTitle2");
 			
