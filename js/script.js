@@ -375,7 +375,7 @@ $(function() {
 			$("button[class^=hardChanceBtn]").on("click", function() {
 				if ($(".sumCk").is(':checked')) {
 					let sum = 0;
-					$(parseInt($(".tryLevel2Num").val()) < firstHardCk){
+					if(parseInt($(".tryLevel2Num").val()) < firstHardCk){
 						sum = firstHardCk;						
 					}else{
 						sum = parseInt($(".tryLevel2Num").val()) - firstHardCk;	
