@@ -336,6 +336,7 @@ $(function() {
 			$("button[class^=hardChanceBtn]").on("click",function(){
 				
 				let val = $(this).data("val");
+				firstHardCk = parseInt($(this).data("val"));
 				$(".hardCk").val(val);
 				if($(this).hasClass("off2")){
 					if(val == "1"){
@@ -370,12 +371,11 @@ $(function() {
 			
 			$("button[class^=hardChanceBtn]").on("click", function() {
 				if ($(".sumCk").is(':checked')) {
-					let sum = $(".tryLevel2Num").val() - firstHardCk;
+					let sum = parseInt($(".tryLevel2Num").val()) - firstHardCk;
 					sum = parseInt(sum) + parseInt($(this).data("val"));
 					if (sum < 0) {
 						sum = 0;
 					}
-					firstHardCk = parseInt($(this).data("val"));
 					$(".tryLevel2Num").val(sum);
 				}
 			});
@@ -409,8 +409,8 @@ $(function() {
 				calcActive = true;
 
 				let result = 0;
-				let hardCk = $(".hardCk").val();
-				let bonusCk = $(".bonusCk").val();
+				let hardCk = parseInt($(".hardCk").val());
+				let bonusCk = parseInt($(".bonusCk").val());
 				let tryLevel2Num = $(".tryLevel2Num").val() != "" ? parseInt($(".tryLevel2Num").val()) : 0;
 				if(tryLevel2Num < 0 ){
 					return;
