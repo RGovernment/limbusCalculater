@@ -264,6 +264,19 @@ $(function() {
 				}		
 			});
 			
+			$(".modalCloseBtn").on("click",function(){
+				
+				$(".QnaModal").addClass("close");
+				$(".QBtn").removeClass("activeBtn");
+				
+			});
+			
+			$(".modalPageUpBtn").on("click",function(){
+				
+				$(".QnaModal").animate({scrollTop: '0'}, 650);
+				
+			});
+			
 			$(".resizeBig").on("click",function(){
 				if(nowZoom < 1.75){
 					nowZoom += 0.25;
@@ -295,9 +308,6 @@ $(function() {
 					$(".tryLevel2Num").val(sum);
 				}else{
 					let sum = parseInt($(".tryLevel2Num").val()) - parseInt($(".hardCk").val());
-					if (sum < 0) {
-						sum = 0;
-					};
 					$(".tryLevel2Num").val(sum);
 				}
 			});
@@ -339,7 +349,6 @@ $(function() {
 			$("button[class^=hardChanceBtn]").on("click",function(){
 				
 				let val = $(this).data("val");
-				
 				$(".hardCk").val(val);
 				if($(this).hasClass("off2")){
 					if(val == "1"){
@@ -373,6 +382,7 @@ $(function() {
 			
 			
 			$("button[class^=hardChanceBtn]").on("click", function() {
+				
 				if ($(".sumCk").is(':checked')) {
 					let sum = 0;
 					let nowValue = parseInt($(this).data("val"));
@@ -424,8 +434,8 @@ $(function() {
 				calcActive = true;
 
 				let result = 0;
-				let hardCk = parseInt($(".hardCk").val());
-				let bonusCk = parseInt($(".bonusCk").val());
+				let hardCk = $(".hardCk").val();
+				let bonusCk = $(".bonusCk").val();
 				let tryLevel2Num = $(".tryLevel2Num").val() != "" ? parseInt($(".tryLevel2Num").val()) : 0;
 				if(tryLevel2Num < 0 ){
 					return;
