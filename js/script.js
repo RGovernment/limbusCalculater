@@ -379,14 +379,11 @@ $(function() {
 					if(parseInt($(".tryLevel2Num").val()) < nowValue ){
 						sum = nowValue;
 					}else{
-						if(firstHardCk > nowValue ){
-							sum = parseInt($(".tryLevel2Num").val()) - nowValue;
-						}else{
-							sum = parseInt($(".tryLevel2Num").val()) - firstHardCk + nowValue;
-						}
-						
-						
-						
+						//if(firstHardCk > nowValue ){
+						sum = parseInt($(".tryLevel2Num").val()) - (firstHardCk - nowValue);
+						//}else{
+						//	sum = parseInt($(".tryLevel2Num").val()) - firstHardCk + nowValue;
+						//}
 					}					
 
 					if (sum < 0) {
