@@ -28,10 +28,6 @@
 		$(".QnaModal").css("width","70%");
 		$(".QnaModal").css("left","10%");
 	}
-	if(navigator.userAgent.toLowerCase().includes("iphone")){
-		$("meta[name='viewport']").attr('content','width=device-width, initial-scale=0.5');
-	}
-
 		let calcActive = false;
 		let nowPage = 1;
 		let nowPageActive = false;
