@@ -375,10 +375,11 @@ $(function() {
 			$("button[class^=hardChanceBtn]").on("click", function() {
 				if ($(".sumCk").is(':checked')) {
 					let sum = 0;
-					if(parseInt($(".tryLevel2Num").val()) < firstHardCk){
-						sum = firstHardCk;						
+					if(parseInt($(".tryLevel2Num").val()) < parseInt($(this).data("val"))){
+						sum = parseInt(parseInt($(this).data("val")));
 					}else{
-						sum = parseInt($(".tryLevel2Num").val()) - firstHardCk;	
+						if(firstHardCk < )
+						sum = parseInt($(".tryLevel2Num").val()) - parseInt($(this).data("val"));	
 					}					
 
 					if (sum < 0) {
