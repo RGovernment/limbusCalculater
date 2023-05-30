@@ -111,7 +111,7 @@ input[type=number] {
 	max-width: 100px;
 }
 .flexContainer{
-	transform:translateY(-400%);
+	transform:translateY(-500%);
 	margin:20px;
 	text-align: center;
 }
@@ -181,7 +181,6 @@ input[type=number] {
 	color: #F7DC94;
 }
 #boxTextContainer{
-	
 	padding-top:5px;
 	padding-left:15px;
 	padding-right:15px; 
@@ -189,7 +188,6 @@ input[type=number] {
 	display: flex;
 	justify-content: space-between; 
 	align-items: center;
-	
 }
 
 .off{

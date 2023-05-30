@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .flexContainer2{
-	transform:translateY(-400%);
+	transform:translateY(-500%);
 	margin:20px;
 	text-align: center;
 }
