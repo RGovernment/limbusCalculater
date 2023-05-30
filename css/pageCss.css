@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+button, html [type="button"] {
+	-webkit-appearance: none;
+}
+
+input [type="number"] {
+	-webkit-appearance: none;
+}
 
 @font-face {
   font-family: "KOTRA_BOLD";
