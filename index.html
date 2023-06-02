@@ -32,8 +32,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/pageCss.css">
-<link rel="stylesheet" href="css/pageCss2.css">
+<link rel="stylesheet" href="css/pageCss.css?v1.00">
+<link rel="stylesheet" href="css/pageCss2.css?v1.00">
 <head>
 <title>림버스 시즌2 거울 던전 계산기</title>
 
@@ -41,7 +41,6 @@
 
 <body>
 <div class="QnaModal">
-<div id="modaltop" style="display: none;"></div>
 <div class="modalContent" >
 <div style="text-align: right;"><button type="button" class="limBtn modalCloseBtn">닫기</button></div>
 <div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum1.png" style="border-radius: 5px;"></div>
@@ -63,15 +62,20 @@
 해당 체크박스를 체크하는 것 만으로는 결과값에 영향을 주지 않습니다.<br><br>
 기본적으로 비활성화 되어있습니다.
 </div>
+<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum8.png" style="border-radius: 5px;"></div>
+<div class="limText2" style="padding:10px;">
+해당 계산기를 6/22일 거울 던전 패치 이전까지 사용하기 위한 옵션 버튼입니다.<br><br>
+하드 던전과 레벨2 거울 던전을 배제 후 시즌1의 수치로 계산합니다.<br><br>
+기본적으로 비활성화 되어있습니다.
+</div>
 <div style="text-align: right;"><button type="button" class="limBtn modalPageUpBtn">▲위로</button></div>
 </div>
 <div class="modalContent2" style="display: none;">
-<div id="modaltop2" style="display: none;"></div>
 <div style="text-align: right;"><button type="button" class="limBtn modalCloseBtn">닫기</button></div>
 <div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum1.png" style="border-radius: 5px;"></div>
 <div class="limText2" style="padding:10px;">주간 보너스 설정 창입니다.<br><br>
-칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.<br><br>
-게이지를 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.</div> 
+게이지을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.<br><br>
+가진 횟수가 없다면 보너스 없음을 눌러주세요.</div> 
 <div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum2.png" style="border-radius: 5px;"></div>
 <div class="limText2" style="padding:10px;">하드 던전 시행 횟수 설정 창입니다.<br><br>
 칸을 클릭하면 최소 0부터 최대 3까지 설정 가능합니다.<br><br> 
@@ -157,6 +161,7 @@
 				<div>
 					<label class="oneLabel"for="one">던전 1 시행횟수 </label>
 					<input type="number" id="one" value=0 class="tryLevel1Num" />
+					시즌1 수치로 계산 <input class="seasonCk" id="seasonCk" type="checkbox" hidden=""/><label for="seasonCk" style="top: 50%; transform: translateY(-75%);"></label>
 				</div>
 			</div>
 		</div>
@@ -265,8 +270,8 @@
 	</div>
 
 </div>
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/script2.js"></script>
+	<script type="text/javascript" src="js/script.js?v1.00"></script>
+	<script type="text/javascript" src="js/script2.js?1.00"></script>
 </body>
 </html>
 

@@ -2,9 +2,15 @@
 		$('body').css('zoom', '0.5'); 
 		$(".warningText").show();
 		
-		$(".input-group").html("<div><label class='twoLabel' for='two'>던전 2 시행횟수 </label>	<input type='number' value=0 id='two' class='tryLevel2Num' /></div>	<br>"
-		+"<div style='margin-top:8px;margin-bottom:15px;'>하드 횟수를 수치에 포함 <input class='sumCk' id='checkBox' type='checkbox' hidden=''/><label for='checkBox' style='top: 25%;'></label></div><br>"
-		+"<div><label class='oneLabel'for='one'>던전 1 시행횟수 </label><input type='number' id='one' value=0 class='tryLevel1Num' /></div>");
+		$(".input-group").html('<div><label class="twoLabel" for="two">던전 2 시행횟수 </label>'+
+					'<input type="number" value=0 id="two" class="tryLevel2Num" />' +
+					'<div style="margin-top:8px;margin-bottom:15px;">하드 횟수를 수치에 포함 <input class="sumCk" id="checkBox" type="checkbox" hidden=""/>'+
+					'<label for="checkBox" style="transform: translateY(27%);"></label></div>'+
+				'</div><br><div>'+
+					'<label class="oneLabel"for="one">던전 1 시행횟수 </label>'+
+					'<input type="number" id="one" value=0 class="tryLevel1Num" />'+
+					'<div style="margin-top:8px;margin-bottom:15px;">시즌1 수치로 계산 <input class="seasonCk" id="seasonCk" type="checkbox" hidden=""/>'+
+					'<label for="seasonCk" style="transform: translateY(27%);"></label></div></div>');
 		
 		$(".input-group2").html('<div style="margin-bottom:15px;">'+'<span>파편 </span> <span style="padding-left: 3px;">1개 취급</span> <input class="costCk" id="fragCountBox1" type="checkbox" value=1 hidden="" /><label for="fragCountBox1" style="top: 25%; margin-right:18px;"></label>'+
 				'파편 2개 취급 <input class="costCk" id="fragCountBox2" type="checkbox" value=2 hidden="" checked="checked"/><label for="fragCountBox2" style="top: 25%; margin-right:18px;"></label>'+
@@ -427,6 +433,8 @@ $(function() {
 			
 			$(".resultButton").on("click", 	function() {
 
+
+
 				if(calcActive){
 					return;
 				}
@@ -451,17 +459,35 @@ $(function() {
 					resultMad = bonusCk * madness;	
 				}
 				
-				let sumCk = "N";
-				if ($(".sumCk").is(':checked')) {
-					sumCk = "Y";
+								
+				if($(".seasonCk").is(":checked")){
+					level1Result = {
+						bonus : 20,
+						normal : 7
+					}
+					
+					tryLevel2Num = 0;
+					hardCk = 0;
+					
+				}else{
+					level1Result = {
+						bonus : 15,
+						normal : 10
+					}
 				}
 				
 				if(tryLevel2Num == 0 && tryLevel1Num == 0){
 					if(hardCk == 0 ){
 						return;	
 					}
-					
 				}
+				
+				let sumCk = "N";
+				if ($(".sumCk").is(':checked')) {
+					sumCk = "Y";
+				}
+				
+				
 				let remainLevel2Num = 0;
 				if(tryLevel2Num - hardCk > 0 ){
 					remainLevel2Num = tryLevel2Num - hardCk;	
@@ -747,10 +773,6 @@ $(function(){
 
 		if (!regex.test($(this).val())) {
 			$(this).val($(this).val().slice(0,2));
-		}
-		
-		if($(this).val() == 0){
-			$(this).val(1);
 		}
 		
 		 if (event.key === "Enter") {

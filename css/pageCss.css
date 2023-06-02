@@ -413,6 +413,7 @@ input[type=number] {
 	text-align:right;
 	color:#EECEA4;
 	margin:5px;
+	margin-right:15px;
 	margin-left:9px;
 	width:150px;
 	height:40px;
@@ -466,6 +467,19 @@ input[type="checkbox"] + label {
 }
 
 input[id="checkBox"]:checked + label::after {
+	content: '';
+	background-color: #F5FA1F;
+	box-shadow: inset 0px 0px 5px 2px #CE4B00,0px 0px 2px 2px #CE4B00;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+input[id="seasonCk"]:checked + label::after {
 	content: '';
 	background-color: #F5FA1F;
 	box-shadow: inset 0px 0px 5px 2px #CE4B00,0px 0px 2px 2px #CE4B00;

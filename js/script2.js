@@ -135,6 +135,11 @@ $(function(){
 		
 	$(".resultButton2").on("click", function(){
 		
+		level1Result = {
+						bonus : 15,
+						normal : 10
+					}
+		
 		if(calcActive2){
 			return;
 		}
@@ -143,7 +148,6 @@ $(function(){
 		$(".playTotalVal").text("");
 		$(".playHardVal").text("");
 		$(".playlevel1Val").text("");
-		$(".playlevel2Val").text("");
 		$(".useEnkeVal").text("");
 		
 		if($(".levelCk").is(":checked")){
@@ -175,7 +179,7 @@ $(function(){
 	let calcEffi = (simulCost,consumWeek) => {
 	
 		let result = {};
-	
+		
 		let needVal = $(".needFragmentInput").val() != "" ? parseInt($(".needFragmentInput").val()) : 0;
 		if(0 > parseInt($(".needFragmentInput").val())){
 			return result = {
@@ -188,7 +192,7 @@ $(function(){
 							};
 	
 		}
-
+		console.log(needVal);
 		let nowVal = $(".nowFragmentInput").val() != "" ? parseInt($(".nowFragmentInput").val()) : 0;
 		if(0>parseInt($(".nowFragmentInput").val())){
 			return result = {
@@ -200,10 +204,9 @@ $(function(){
 								exp : 0
 							};
 		}
-
+		console.log(nowVal);
 		let actuNeedNum = 0;
-
-		if(0 > needVal - nowVal){
+		if(0 >= needVal - nowVal){
 			return result = {
 								countNum : 0, 
 								cost : 0,
@@ -213,7 +216,9 @@ $(function(){
 								exp : 0
 							};
 		}
+		console.log(actuNeedNum);
 		actuNeedNum = needVal - nowVal;
+
 		let hardNum =  parseInt($(".effihardCk").val()) * parseInt(consumWeek);
 		let bonusNum = parseInt($(".boCk").val()) * parseInt(consumWeek);
 		let count = 0;
@@ -225,7 +230,10 @@ $(function(){
 		let playHard = 0;
 		let playLevel2 = 0;
 		let playLevel1 = 0;
-		
+		console.log(hardNum);
+		console.log(bonusNum);
+		console.log(needBox);
+		console.log(needExp);
 		let remainBonus = 0;
 		if($(".levelCk").is(":checked")){
 			if (bonusNum > 0) {
@@ -287,16 +295,15 @@ $(function(){
 				
 			}
 		}
-		
 		//하드 횟수 있을 경우
 		if (hardNum > 0) {
-			//console.log("A : " + count);
+			console.log("A : " + count);
 			//보너스 존재 여부 확인
 			if (bonusNum > 0) {
-				//console.log("B : " + count);
+				console.log("B : " + count);
 				//보너스보다 하드 이용횟수가 많을 경우
 				if (hardNum > bonusNum) {
-					//console.log("C : " + count);
+					console.log("C : " + count);
 					for(let i =1; i<=bonusNum;i++){
 						count++;
 						playHard++;
@@ -336,7 +343,7 @@ $(function(){
 	
 				//보너스보다 하드 이용횟수가 적을 경우
 				} else {
-					// console.log("D : " + count);
+					console.log("D : " + count);
 					for(let i =1; i<= bonusNum;i++){
 						count++;
 						playHard++;
@@ -551,3 +558,4 @@ $(function(){
 	
 	
 });
+
