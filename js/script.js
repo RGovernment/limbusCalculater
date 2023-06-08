@@ -12,28 +12,13 @@
 					'<div style="margin-top:8px;margin-bottom:15px;">시즌1 수치로 계산 <input class="seasonCk" id="seasonCk" type="checkbox" hidden=""/>'+
 					'<label for="seasonCk" style="transform: translateY(27%);"></label></div></div>');
 		
-		$(".input-group2").html('<div style="margin-bottom:15px;">'+'<span>파편 </span> <span style="padding-left: 3px;">1개 취급</span> <input class="costCk" id="fragCountBox1" type="checkbox" value=1 hidden="" /><label for="fragCountBox1" style="top: 25%; margin-right:18px;"></label>'+
-				'파편 2개 취급 <input class="costCk" id="fragCountBox2" type="checkbox" value=2 hidden="" checked="checked"/><label for="fragCountBox2" style="top: 25%; margin-right:18px;"></label>'+
-				'파편 3개 취급 <input class="costCk" id="fragCountBox3" type="checkbox" value=3 hidden=""/><label for="fragCountBox3" style="top: 25%;"></label>'+
-				'</div>'+
-				'<div><label class="needFragLabel" for="needFrag">요구 파편 수량 </label>'+
-				'<input type="number" class="needFragmentInput" id="needFrag" value="400"/>'+
-				'레벨1 던전만 진행 <input class="levelCk" id="levelBox" type="checkbox" hidden=""/><label for="levelBox" style="top: 50%; transform: translateY(-75%);"></label>'+
-			'</div><br><div>'+
-				'<label class="nowFragLabel" for="nowFrag">현재 파편 수량 </label>'+
-				'<input type="number" class="nowFragmentInput" id="nowFrag" value="0"/>'+
-				
-			'</div>'+
-			'<div>'+
-				'<label class="consumWeekLabel" for="consumWeek">소모 주간</label>'+
-				'<input type="number" class="consumWeek" id="consumWeek" value="1"/>'+
-				
-			'</div>');
 		$(".calTitle1").html("경험치<br>계산기");
 		$(".calTitle2").html("파편<br>계산기");
 		$(".QnaModal").css("width","70%");
 		$(".QnaModal").css("left","10%");
 	}
+	
+		
 		let calcActive = false;
 		let nowPage = 1;
 		let nowPageActive = false;
@@ -58,8 +43,35 @@
 			bonus : 15,
 			normal : 10
 		}
-
 		
+		let logTextPageOne = "";
+		let logTextCountPageOne = 1;
+		let logTextPageTwo = "";
+		let logTextCountPageTwo = 1;	
+		
+		if(localStorage.getItem("logTextOneDataSave") != null){
+			
+			logTextPageOne = localStorage.getItem("logTextOneDataSave");
+			logTextCountPageOne = parseInt(localStorage.getItem("logTextOneCountSave"));
+			logTextPageTwo = localStorage.getItem("logTextTwoDataSave");
+			logTextCountPageTwo = parseInt(localStorage.getItem("logTextTwoCountSave"));
+			
+			$("#logTextBox").html(logTextPageOne);
+			
+		}
+		
+	
+		
+		
+//		let cookies = document.cookie.split("; ");
+//		for (let i = 0; i < cookies.length; i++) {
+//		  let cookie = cookies[i].split("=");
+//		  if (cookie[0] === "logTextOneDataSave") {
+//			  console.log(cookie[1]);
+//		    logTextPageOne = cookie[1];
+//		  }
+//		}
+
 //기본 설정
 $(function() {
 			let cautionLength = 1;
@@ -78,7 +90,13 @@ $(function() {
 					//도움말 켜져있을 경우 제거
 					$(".QBtn").removeClass("activeBtn");
 					$(".QnaModal").addClass("close");
-	
+					
+					if($("#logBox").hasClass("active5")){
+						$(".logBtn").removeClass("activeBtn");
+						$("#logBox").removeClass("active5");
+						$("#logBox").addClass("close2");
+					}
+					
 					if(navigator.userAgent.toLowerCase().includes("mobile")){
 						$(".QnaModal").removeClass("activeMobile3");
 					}else{
@@ -128,8 +146,8 @@ $(function() {
 						//텍스트 타이핑
 						cautionTextSet2();
 						
-						//
-
+						//로그 텍스트 페이지2 사양으로 변경
+						$("#logTextBox").html(logTextPageTwo);
 						//
 						
 						
@@ -173,6 +191,11 @@ $(function() {
 					$(".QBtn").removeClass("activeBtn");
 					$(".QnaModal").addClass("close");
 					
+					if($("#logBox").hasClass("active5")){
+						$(".logBtn").removeClass("activeBtn");
+						$("#logBox").removeClass("active5");
+						$("#logBox").addClass("close2");
+					}
 
 					$(".QnaModal").removeClass("close");
 					if(navigator.userAgent.toLowerCase().includes("mobile")){
@@ -191,6 +214,12 @@ $(function() {
 						$(".boxCon2").hide();
 						$(".modalContent").show();
 						$(".modalContent2").hide();
+						
+						
+						//로그 텍스트 페이지1 사양으로 변경
+						$("#logTextBox").html(logTextPageOne);
+						//
+						
 						
 						//페이지1 오픈 액션 클래스 주입
 						$(".flexContainer").each(function() {
@@ -661,7 +690,7 @@ $(function() {
 
 				});
 		let timeoutBlock = 0;
-		let delay = 40;
+		let delay = 30;
 		let nowLength = 0;
 		let battleText = "배틀패스 경험치";
 		let enkeText = "소모 엔케팔린 모듈 : ";
@@ -678,15 +707,16 @@ $(function() {
 		    battleTextSet(result, cost, resultMad);
 		  }, delay);
 		};
-
 		let battleTextSet = (result, cost, resultMad) => {
+			let nowText = "";
 		  if (nowLength <= battleText.length) {
-		    let nowText = battleText.slice(0, nowLength);
+		    nowText = battleText.slice(0, nowLength);
 		    $(".calcVal").html("<div>" + nowText + "</div>");
 		    nowLength++;
 		    timeoutBlock += delay;
 		    setTimeout(battleTextSet, delay, result, cost, resultMad);
 		  } else {
+
 		    setTimeout(function () {
 		      $(".calcVal").html(
 		        "<div>배틀패스 경험치<img src='" + imageSrc + "' style='transform:translateY(-10%); height: 35px; margin-left:5px;'/></div>"
@@ -698,8 +728,13 @@ $(function() {
 			      $(".calcVal").html(
 			        "<div>배틀패스 경험치<img src='" + imageSrc + "' style='transform:translateY(-10%); height: 35px; margin-left:5px;'/> X " + result + "개 ( "+result/10+"레벨, 파편상자 : "+ ( Math.floor(result / 10) * 3) +"개 )</div>"
 			      );
+			      
+			    logTextPageOne += "<div style='height:20px;'></div><div class='logText'>"+logTextCountPageOne+"번째 로그</div>"+
+				"<div class='logText'>배틀패스 경험치 :  " + result + " ( "+result/10+"레벨, 파편상자 : "+ ( Math.floor(result / 10) * 3) +"개 )</div>";
+				logTextCountPageOne++;
+			      
 			      setTimeout(typingAfterImage, delay, cost, resultMad);
-			    }, delay);
+			    }, delay);   
 		  }
 		};
 		
@@ -722,6 +757,8 @@ $(function() {
 		      
 		    }
 		  }, delay);
+		  
+		  logTextPageOne += "<div class='logText'>"+enkeText+"</div>";
 
 		};
 		
@@ -734,6 +771,17 @@ $(function() {
 			    timeoutBlock += delay;
 			    setTimeout(madTextSet, delay, resultMad);
 			  } else{
+				  	logTextPageOne += "<div class='logText'>"+madText+"</div>";
+				  	$("#logTextBox").html(logTextPageOne);
+	
+					localStorage.setItem("logTextOneDataSave", logTextPageOne);
+					localStorage.setItem("logTextOneCountSave", logTextCountPageOne);
+					
+//				  	let date = new Date();
+//					date.setTime(date.getTime() + 168 * 60 * 60 * 1000); // 7일 동안 유효
+//					document.cookie = "logTextOneDataSave="+encodeURIComponent(logTextPageOne)+"; expires=" + date.toUTCString();
+//					document.cookie = "logTextOneCountSave="+logTextCountPageOne+"; expires=" + date.toUTCString();
+				  	
 					calcActive = false;
 			  }
 		};
@@ -800,7 +848,42 @@ $(function(){
 		  }
 	});
 
+	$(".patchBtn").on("click",function(){
+		window.open("about:blank").location.href = "https://www.evernote.com/shard/s727/sh/aca0e9ce-6c36-e919-7068-fce885128e04/pURhYExQdaRHccWMf8U9zUVQwfcuwfJwtJzk0p0bo-y_3eI_Vp_94N8b1w";
+	});
+
+	$(".logBtn").on("click",function(){
+		
+		if($("#logBox").hasClass("active5")){
+			$(this).removeClass("activeBtn");
+			$("#logBox").removeClass("active5");
+			$("#logBox").addClass("close2");
+		}else{
+			$(this).addClass("activeBtn");
+			$("#logBox").removeClass("close2");
+			$("#logBox").addClass("active5");
+		}
+
+	});
 	
+	$(".logRemoveBtn").on("click",function(){
+		
+		logTextPageOne = "";
+		logTextCountPageOne = 1;
+		logTextPageTwo = "";
+		logTextCountPageTwo = 1;	
+		
+		$("#logTextBox").html("");
+		
+		if(localStorage.getItem("logTextOneDataSave") != null){
+			localStorage.removeItem("logTextOneDataSave");
+			localStorage.removeItem("logTextOneCountSave");
+			localStorage.removeItem("logTextTwoDataSave");
+			localStorage.removeItem("logTextTwoCountSave");
+		}
+		
+	});
+		
 });
 
 		

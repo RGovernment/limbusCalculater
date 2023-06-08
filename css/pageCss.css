@@ -78,6 +78,8 @@ input[type=number] {
 }
 
 .borderCon{
+	position:relative;
+	z-index:100;
 	border-radius:25px;
 	margin:0 auto;
 	padding-top:12px;
@@ -88,7 +90,7 @@ input[type=number] {
 	width:80%;
 	background-color: #372019;
 	background-image: linear-gradient(270deg, #613424, #372019);
-	box-shadow: 0px 0px 5px 2px #06120B; 
+	box-shadow: 0px 5px 5px 2px #06120B; 
 }
 
 .boxCon {
@@ -149,8 +151,8 @@ input[type=number] {
 
 /*여기서부터 보너스 기회 상자 CSS start*/
 #bonusBox {
+	z-index:106;
 	position:relative;
-	z-index:3;
 	flex-wrap: wrap;
 	border-radius: 8px;
 	background-image: linear-gradient(60deg, #81542F, #CD9A61);
@@ -195,9 +197,9 @@ input[type=number] {
 	box-shadow: 0px 0px 0px #704527;
 }
 .bonusBtn0 {
+	z-index:105;
 	position:relative;
 	padding-top:7px;
-	z-index:2;
 	background-color:transparent;
 	border:none;
 	width: 100%;
@@ -210,7 +212,6 @@ input[type=number] {
 
 .bonusBtn1 {
 	width: 70px;
-	z-index: 4;
 	background-color: #F5FA1F;
 	box-shadow: inset 0px 0px 5px 2px #CE4B00;
 	border: none;
@@ -221,7 +222,6 @@ input[type=number] {
 
 .bonusBtn2 {
 	width: 70px;
-	z-index: 5;
 	background-color: #F5FA1F;
 	box-shadow: inset 0px 0px 5px 2px #CE4B00;
 	border: none;
@@ -230,7 +230,6 @@ input[type=number] {
 
 .bonusBtn3 {
 	width: 70px;
-	z-index: 4;
 	background-color: #F5FA1F;
 	box-shadow: inset 0px 0px 5px 2px #CE4B00;
 	border: none;
@@ -240,11 +239,11 @@ input[type=number] {
 }
 
 #bonusZero {
+	z-index:105;
 	border-bottom-right-radius:5px;
 	border-bottom-left-radius:5px;
 	position:relative;
 	transform: translateX(50%) ;
-	z-index:2;
 	border:none;
 	background-image: linear-gradient(60deg, #81542F, #CD9A61);
 	box-shadow: inset 0px 0px 3px 3px #C0AB73,0px 3px 3px 3px #190800;
@@ -264,8 +263,8 @@ input[type=number] {
 
 /*여기서부터 하드 던전 기회 CSS START*/
 #hardChanceBox {
+	z-index:106;
 	position:relative;
-	z-index:3;
 	flex-wrap: wrap;
 	border-radius: 8px;
 	background-color: #44373E;
@@ -301,9 +300,9 @@ input[type=number] {
 	background-color: #005612 !important;
 }
 .hardChanceBtn0 {
+	z-index:105;
 	padding-top:7px;
 	position:relative;
-	z-index:2;
 	background-color:transparent;
 	border:none;
 	width: 100%;
@@ -316,7 +315,6 @@ input[type=number] {
 
 .hardChanceBtn1 {
 	width: 70px;
-	z-index: 4;
 	background-color: #00DE1A;
 	box-shadow: inset 0px 0px 5px 2px #06120B;
 	border: none;
@@ -327,7 +325,6 @@ input[type=number] {
 
 .hardChanceBtn2 {
 	width: 70px;
-	z-index: 5;
 	background-color: #00DE1A;
 	box-shadow: inset 0px 0px 5px 2px #06120B;
 	border: none;
@@ -336,7 +333,6 @@ input[type=number] {
 
 .hardChanceBtn3 {
 	width: 70px;
-	z-index: 4;
 	background-color: #00DE1A;
 	box-shadow: inset 0px 0px 5px 2px #06120B;
 	border: none;
@@ -346,11 +342,11 @@ input[type=number] {
 }
 
 #hardChanceZero {
+	z-index:105;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
 	position:relative;
 	transform: translateX(50%) ;
-	z-index:2;
 	border:none;
 	background-color: #44373E;
 	/* background-image: linear-gradient(60deg, #81542F, #CD9A61); */
@@ -526,4 +522,73 @@ input[id="seasonCk"]:checked + label::after {
 .madVal{
 	width:100%;
 	flex-wrap: wrap;
+}
+
+#logBox{
+	transform : translateY(-105%);
+	margin-bottom:100px;
+	margin: 0 auto;
+	position:relative;
+	background-color: #372019;
+	background-image: linear-gradient(270deg, #613424, #372019);
+	box-shadow: 0px 0px 5px 2px #06120B;
+	width:60%;
+	height:400px;
+	z-index:50;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 90% 100%, 10% 100%, 0% 85%);
+}
+
+.active5{
+	transform:translateY(0%)!important;
+	transition : transform 0.5s ease-in-out;
+}
+.close2{
+	transform: translateY(-105%)!important;
+	transition : transform 0.5s ease-in-out;
+}
+#logTextBox::-webkit-scrollbar {
+	width: 0px;
+	background-color: transparent;
+}
+#logBorderBox{
+	margin: 0 auto;
+	height:90%;
+	justify-content: center;
+	flex-wrap: wrap;
+	display: flex;
+	background:#88592F;
+	width:90%;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 90% 100%, 10% 100%, 0% 85%);
+}
+
+#logTextBox{
+	width:calc(100% - 2px);
+	overflow-Y:scroll;
+	padding:5px;
+	border : solid 5px #88592F;
+	background:#190404;
+	background-size:100% 5px;
+	background-image: linear-gradient( rgba(25, 4, 4, 0.1) 70%, rgba(245, 210, 184, 0.1) 60%);
+	height:calc(100% - 2px);
+	margin: 0 auto;
+ 	clip-path: polygon(0% 0%, 100% 0%, 100% calc(85% - 5px), 90% calc(100% - 5px), 10% calc(100% - 5px), 0% calc( 85% - 5px));
+	
+}
+
+.logText{
+	text-align:center;
+	font-size:18px;
+	margin: 0 auto;
+	padding:3px;
+	font-family: 'KOTRA_BOLD', sans-serif;
+	color:#F7DC94;
+	width:100%;
+	flex-wrap: wrap;
+}
+
+.logRemoveBtn{
+	z-index:49;
+	position: fixed;
+	margin-left: 8%;
+
 }

@@ -28,12 +28,12 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
 	integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
 	crossorigin="anonymous"></script>
-	
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/pageCss.css?v1.00">
-<link rel="stylesheet" href="css/pageCss2.css?v1.00">
+<link rel="stylesheet" href="css/pageCss.css?v1.0.1">
+<link rel="stylesheet" href="css/pageCss2.css?v1.0.1">
 <head>
 <title>림버스 시즌2 거울 던전 계산기</title>
 
@@ -87,12 +87,6 @@
 세번째 칸에는 목표한 수량을 얻기까지 사용자가 소모할 예상 주차를 적을 수 있습니다.
 <br>
 소모 주차는 보너스와 하드 던전 시행 횟수에 영향을 줍니다.
-</div>
-<div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum6.png" style="border-radius: 5px;"></div>
-<div class="limText2" style="padding:10px;">
-상자에서 등장하는 파편이 몇개일지 정할 수 있습니다.<br><br>
-상자는 시즌1 패스 구매시 초과 보상과 동일하게 가정합니다.<br><br>
-공식에서 공개한 확률의 평균값은 상자당 2개입니다.
 </div>
 <div style=" margin:10px; overflow:hidden;  display: flex; justify-content: center; align-items: center;"><img class="img-fluid" src="img/doum7.png" style="border-radius: 5px;"></div>
 <div class="limText2" style="padding:10px;">
@@ -234,7 +228,6 @@
 			<div>
 				<label class="needFragLabel" for="needFrag">요구 파편 수량 </label>
 				<input type="number" class="needFragmentInput" id="needFrag" value="400"/>
-				<span>상자를 파편 </span> <span style="padding-left: 3px;">1개 취급</span> <input class="costCk" id="fragCountBox1" type="checkbox" value=1 hidden="" /><label for="fragCountBox1" style="top: 50%; transform: translateY(-75%); margin-right:15px"></label>
 				레벨1 던전만 진행 <input class="levelCk" id="levelBox" type="checkbox" hidden=""/><label for="levelBox" style="top: 50%; transform: translateY(-75%);"></label>
 			</div>
 			
@@ -242,12 +235,10 @@
 			<div>
 				<label class="nowFragLabel" for="nowFrag">현재 파편 수량 </label>
 				<input type="number" class="nowFragmentInput" id="nowFrag" value="0"/>
-				상자를 파편 2개 취급 <input class="costCk" id="fragCountBox2" type="checkbox" value=2 hidden="" checked="checked"/><label for="fragCountBox2" style="top: 50%; transform: translateY(-75%);"></label>
 			</div>
 			<div>
 				<label class="consumWeekLabel" for="consumWeek">소모 주간</label>
 				<input type="number" class="consumWeek" id="consumWeek" value="1"/>
-				상자를 파편 3개 취급 <input class="costCk" id="fragCountBox3" type="checkbox" value=3 hidden=""/><label for="fragCountBox3" style="top: 50%; transform: translateY(-75%);"></label>
 			</div>
 		</div>
 	</div>
@@ -261,17 +252,28 @@
 	<div id="resultBox2">
 		<div style='font-size:35px' id="textTitle2"></div>
 		<div class="playTotalVal"></div>
+		<div class="playExpVal"></div>
 		<div class="playHardVal"></div>
 		<div class="playlevel2Val"></div>
 		<div class="playlevel1Val"></div>
 		<div class="useEnkeVal"></div>
 	</div>
 	
-	</div>
-
 </div>
-	<script type="text/javascript" src="js/script.js?v1.00"></script>
-	<script type="text/javascript" src="js/script2.js?1.00"></script>
+<div style="padding-left:5%; padding-right:5%; display:flex; justify-content:space-between;">
+<button class="limBtn patchBtn">패치노트</button>
+<button class="limBtn logBtn">로그 확인</button>
+</div>
+</div>
+<div id="logBox">
+	<button type="button" class="logRemoveBtn limBtn">로그 삭제</button>
+	<div id="logBorderBox">	
+		<div id="logTextBox">
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="js/script.js?v1.0.1"></script>
+	<script type="text/javascript" src="js/script2.js?v1.0.1"></script>
 </body>
 </html>
 

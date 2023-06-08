@@ -95,14 +95,14 @@ $(function(){
 		$(".effihardCk").val(parseInt($(this).data("val")));
 	});
 		
-	$(".costCk").on("click",function(){
-		
-		costCk = parseInt($(this).val());
-
-		$(".costCk").prop('checked',false);
-		$(this).prop('checked',true);
-		
-	});
+//	$(".costCk").on("click",function(){
+//
+//		costCk = parseInt($(this).val());
+//
+//		$(".costCk").prop('checked',false);
+//		$(this).prop('checked',true);
+//		
+//	});
 	
 	$(".resetButton2").on("click",function(){
 		
@@ -143,10 +143,12 @@ $(function(){
 		if(calcActive2){
 			return;
 		}
-		
+
 		$("#textTitle2").text("");	
 		$(".playTotalVal").text("");
+		$(".playExpVal").text("");
 		$(".playHardVal").text("");
+		$(".playlevel2Val").text("");
 		$(".playlevel1Val").text("");
 		$(".useEnkeVal").text("");
 		
@@ -166,11 +168,13 @@ $(function(){
 		if(0 > week){
 				week = 1;
 		}
-		let value = calcEffi(costCk,week);
+		let value = calcEffi(1,week);
+		let value2 = calcEffi(2,week);
+		let value3 = calcEffi(3,week);
 
 		$("#resultBox2").addClass("resize2");
 		
-		makingText(value);
+		makingText(value,value2,value3);
 		
 		
 		
@@ -280,7 +284,7 @@ $(function(){
 					playLevel1++;
 					nowExp += level1Result.normal;
 					needCost += level1Cost;
-					
+					console.log(count);
 					if(nowExp >= needExp){
 						return result = {
 							countNum : count, 
@@ -405,11 +409,50 @@ $(function(){
 						};
 					}	
 				}
+			}else{
+				
+				for(let i =1; i<= hardNum;i++){
+						count++;
+						playHard++;
+						nowExp += level2HardResult.normal;
+						needCost += level2HardCost;
+						
+						if(nowExp >= needExp){
+							return result = {
+								countNum : count, 
+								cost : needCost,
+								hard : playHard,
+								level2 : playLevel2,
+								level1 : playLevel1,
+								exp : nowExp
+							};
+						}	
+					}
+				
+				
+				for(let i =1+remainBonus; i<=actuNeedNum;i++){
+					count++;
+					playLevel2++;
+					nowExp += level2Result.normal;
+					needCost += level2Cost;
+					
+					if(nowExp >= needExp){
+						return result = {
+							countNum : count, 
+							cost : needCost,
+							hard : playHard,
+							level2 : playLevel2,
+							level1 : playLevel1,
+							exp : nowExp
+						};
+					}	
+				}
+				
 			}
 
 		//하드 횟수가 없을 경우
 		} else {
-		//	console.log("F : " + count);
+		console.log("F : " + count);
 
 			if (bonusNum > 0) {
 				
@@ -454,29 +497,59 @@ $(function(){
 
 	
 		let timeoutBlock2 = 0;
-		let delay = 30;
+		let delay = 17;
 		let nowLength = 0;
 		let totalText = "";
+		let expText = "";
 		let hardText = "";
 		let level2Text = "";
 		let level1Text = "";
 		let enkeText = "";
 
-		let makingText = (value) => {
+		let makingText = (value,value2,value3) => {
 
-			totalText = "거던 총 플레이 횟수 : " + value.countNum +"회 ( 예상 획득 경험치 : "+ value.exp.toLocaleString('ko-KR') +" )";
-			hardText = "하드 던전 플레이 횟수 : " + value.hard +"회";
-			level2Text = "2렙 던전 플레이 횟수 : " + value.level2 + "회";
-			level1Text = "1렙 던전 플레이 횟수 : " + value.level1 + "회";
-			enkeText = "엔케팔린 모듈 소모량 : " + value.cost + "개";
+			if(value3.countNum == value.countNum){
+				totalText = "거던 예상 플레이 횟수 : " + value3.countNum +"회";
+			}else{
+				totalText = "거던 예상 플레이 횟수 : " + value3.countNum +" ~ "+value.countNum+"회 [ 평균 : "+ value2.countNum +"회 ]";
+			}
+				
+			if(value3.exp == value.exp){
+				expText = "( 예상 획득 경험치 : " + value3.exp.toLocaleString('ko-KR') +" )";
+			}else{
+				expText = "( 예상 획득 경험치 : "+ value3.exp.toLocaleString('ko-KR') +" ~ "+value.exp.toLocaleString('ko-KR')+ " )";
+			}	
 			
+			if(value3.hard == value.hard){
+				hardText = "하드 던전 예상 플레이 횟수 : " + value3.hard +"회";
+			}else{
+				hardText = "하드 던전 예상 플레이 횟수 : " + value3.hard +" ~ "+value.hard+"회 [ 평균 : "+ value2.hard +"회 ]";	
+			}
+			
+			if(value3.level2 == value.level2){
+				level2Text = "2렙 던전 예상 플레이 횟수 : " + value3.level2 +"회";
+			}else{
+				level2Text = "2렙 던전 예상 플레이 횟수 : " + value3.level2 +" ~ "+value.level2+"회 [ 평균 : "+ value2.level2 +"회 ]";
+			}
+			
+			if(value3.level1 == value.level1){
+				level1Text = "1렙 던전 예상 플레이 횟수 : " + value3.level1 +"회";
+			}else{
+				level1Text = "1렙 던전 예상 플레이 횟수 : " + value3.level1 +" ~ "+value.level1+"회 [ 평균 : "+ value2.level1 +"회 ]";
+			}
+			
+			if(value3.cost == value.level1){
+				enkeText = "엔케팔린 모듈 예상 소모량 : " + value3.cost +"개";
+			}else{
+				enkeText = "엔케팔린 모듈 예상 소모량 : " + value3.cost +" ~ "+value.cost+"개 [ 평균 : "+ value2.cost +"개 ]";
+			}
+
 			let typingTextTitle = $("#textTitle2");
 			
 			typingTextTitle.text("결");
 			setTimeout(function () {
 				typingTextTitle.text("결과");
 				nowLength = 0;
-				timeoutBlock2 += delay;
 				totalTextSet();
 		  }, delay);
 		  
@@ -487,8 +560,21 @@ $(function(){
 		    	let nowText = totalText.slice(0, nowLength);
 		    	$(".playTotalVal").html("<div>" + nowText + "</div>");
 		    nowLength++;
-		    timeoutBlock2 += delay;
 		    setTimeout(totalTextSet, delay);
+		  } else {
+				 nowLength = 0;
+				 expTextSet();
+			   
+		  }
+		};
+		
+		
+		let expTextSet = () => {
+			if (nowLength <= expText.length) {
+		    	let nowText = expText.slice(0, nowLength);
+		    	$(".playExpVal").html("<div>" + nowText + "</div>");
+		    nowLength++;
+		    setTimeout(expTextSet, delay);
 		  } else {
 				 nowLength = 0;
 				 if($(".levelCk").is(":checked")){
@@ -549,6 +635,33 @@ $(function(){
 			    timeoutBlock2 += delay;
 			    setTimeout(typingEnkeText, delay);
 			} else{
+				
+				 if($(".levelCk").is(":checked")){
+					logTextPageTwo += "<div style='height:20px;'></div><div class='logText'>"+logTextCountPageTwo+"번째 로그</div>"+
+					"<div class='logText'>"+totalText+"</div>"+
+					"<div class='logText'>"+expText+"</div>"+
+					"<div class='logText'>"+level1Text+"</div>"+
+					"<div class='logText'>"+enkeText+"</div>";
+				}else{
+					logTextPageTwo += "<div style='height:20px;'></div><div class='logText'>"+logTextCountPageTwo+"번째 로그</div>"+
+					"<div class='logText'>"+totalText+"</div>"+
+					"<div class='logText'>"+expText+"</div>"+
+					"<div class='logText'>"+hardText+"</div>"+
+					"<div class='logText'>"+level2Text+"</div>"+
+					"<div class='logText'>"+enkeText+"</div>";
+				}
+				
+				logTextCountPageTwo++;
+				$("#logTextBox").html(logTextPageTwo);
+	
+				localStorage.setItem("logTextTwoDataSave", logTextPageTwo);
+				localStorage.setItem("logTextTwoCountSave", logTextCountPageTwo);
+				
+//				let date = new Date();
+//				date.setTime(date.getTime() + 168 * 60 * 60 * 1000); // 7일 동안 유효
+//				document.cookie = "logTextTwoDataSave="+encodeURIComponent(logTextPageTwo)+"; expires=" + date.toUTCString();
+//				document.cookie = "logTextTwoCountSave="+logTextCountPageTwo+"; expires=" + date.toUTCString();
+			
 				calcActive2 = false;  
 			}
 		};
