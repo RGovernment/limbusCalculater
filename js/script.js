@@ -16,6 +16,8 @@
 		$(".calTitle2").html("파편<br>계산기");
 		$(".QnaModal").css("width","70%");
 		$(".QnaModal").css("left","10%");
+		$(".logRemoveBtn").removeClass("limBtn");
+		$(".logRemoveBtn").addClass("limBtnSmall");
 	}
 	
 		
