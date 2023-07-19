@@ -25,15 +25,15 @@
 		let nowPage = 1;
 		let nowPageActive = false;
 		let nowZoom = 1.5;
-		let firstHardCk = 3;
+		let firstHardCk = 1;
 		let madness = 250;
-		let level2HardCost = 6;
+		let level2HardCost = 18;
 		let level2Cost = 5;
 		let level1Cost = 3;
 
 		let level2HardResult = {
-			bonus : 75,
-			normal : 50
+			bonus : 25,
+			normal : 150
 		};
 
 		let level2Result = {
@@ -387,34 +387,16 @@ $(function() {
 				
 				let val = $(this).data("val");
 				$(".hardCk").val(val);
-				if($(this).hasClass("off2")){
-					if(val == "1"){
-						$("#bonusNumber2").text("1/3");
-					}else if(val == "2"){
-						$("#bonusNumber2").text("2/3");
-						$(".hardChanceBtn1").removeClass("off2");
-					}else if(val =="3"){
-						$("#bonusNumber2").text("3/3");
-						$(".hardChanceBtn1").removeClass("off2");
-						$(".hardChanceBtn2").removeClass("off2");
-					}
-					$(this).removeClass("off2");
-					return;
+				if(val == "1"){
+
+						$("#bonusNumber2").text("1/1");
+						$(this).removeClass("off2");
+						
 				}else{
-					if(val == "0"){
-						$("#bonusNumber2").text("0/3");
-						$(".hardChanceBtn1").addClass("off2");
-						$(".hardChanceBtn2").addClass("off2");
-						$(".hardChanceBtn3").addClass("off2");
-					}else if(val == "1"){
-						$("#bonusNumber2").text("1/3");
-						$(".hardChanceBtn2").addClass("off2");
-						$(".hardChanceBtn3").addClass("off2");
-					}else if(val == "2"){
-						$("#bonusNumber2").text("2/3");
-						$(".hardChanceBtn3").addClass("off2");
-					}
-				}	
+						$("#bonusNumber2").text("0/1");
+						$(".hardChanceBtn1").addClass("off2");	
+				}
+					
 			});	
 			
 			
@@ -540,22 +522,23 @@ $(function() {
 				if (hardCk > 0) {
 				//보너스 존재 여부 확인
 				if (bonusCk > 0) {
-					let remainHardNum = 0;
+					//** 23-07-17 수정 */
 					//보너스보다 하드 이용횟수가 많은지 확인
-					if (hardCk > bonusCk) {
-							remainHardNum = hardCk - bonusCk; // 보너스 소진후 남은 하드 횟수
-							result += remainHardNum	* level2HardResult.normal; // 하드 일반 보상 계산 B
+//					if (hardCk > bonusCk) {
+//							remainHardNum = hardCk - bonusCk; // 보너스 소진후 남은 하드 횟수
+//							result += remainHardNum	* level2HardResult.normal; // 하드 일반 보상 계산 B
 
-							result += bonusCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
-							
-					} else {
-						remainBonus = bonusCk - hardCk; // 보너스가 하드 이용 횟수보다 많을 경우 남은 보너스 계산
-						result += hardCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
+//							result += bonusCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
+//							
+//					} else {
+//						remainBonus = bonusCk - hardCk; // 보너스가 하드 이용 횟수보다 많을 경우 남은 보너스 계산
+//						result += hardCk * level2HardResult.bonus; // 하드 보너스 보상 계산 A
+//
+//					}
 
-					}
-						
-						
-							//하드 횟수를 레벨2 거던 횟수에 포함시킬 경우
+					result +=  hardCk * (level2HardResult.normal + (level2HardResult.bonus * bonusCk)); // 하드 보너스 보상 계산 A
+						remainBonus = 0;
+						//하드 횟수를 레벨2 거던 횟수에 포함시킬 경우
 						if (sumCk == "Y") {
 						//보너스 횟수가 레벨2 일반거던 횟수보다 많을 경우 C 없음
 							if (remainBonus > remainLevel2Num) {

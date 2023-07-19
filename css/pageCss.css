@@ -42,6 +42,7 @@ input::-webkit-inner-spin-button {
 	height:400px;
 	z-index:500;
 	transform: translateY(-300%);
+	will-change: transform;
 	box-shadow: 6px 6px 5px 4px #06120B;
 }
 
@@ -113,6 +114,7 @@ input[type=number] {
 	max-width: 100px;
 }
 .flexContainer{
+	will-change: transform;
 	transform:translateY(-500%);
 	margin:20px;
 	text-align: center;
@@ -243,7 +245,8 @@ input[type=number] {
 	border-bottom-right-radius:5px;
 	border-bottom-left-radius:5px;
 	position:relative;
-	transform: translateX(50%) ;
+	will-change: transform;
+	transform: translateX(50%);
 	border:none;
 	background-image: linear-gradient(60deg, #81542F, #CD9A61);
 	box-shadow: inset 0px 0px 3px 3px #C0AB73,0px 3px 3px 3px #190800;
@@ -314,7 +317,7 @@ input[type=number] {
 }
 
 .hardChanceBtn1 {
-	width: 70px;
+	width: 210px;
 	background-color: #00DE1A;
 	box-shadow: inset 0px 0px 5px 2px #06120B;
 	border: none;
@@ -376,6 +379,7 @@ input[type=number] {
 
 /* 인풋창 CSS */
 .input-group{
+	will-change: transform;
 	transform: translateX(-300%);
 	margin: 0 auto;
 	display: flex;
@@ -383,6 +387,7 @@ input[type=number] {
 }
 
 .btn-grp{
+	will-change: transform;
 	transform: translateY(200%);
 	margin-bottom:35px;
 	display: flex;
@@ -525,6 +530,8 @@ input[id="seasonCk"]:checked + label::after {
 }
 
 #logBox{
+	backface-visibility: hidden;
+	will-change: transform;
 	transform : translateY(-105%);
 	margin-bottom:100px;
 	margin: 0 auto;
@@ -605,3 +612,4 @@ input[id="seasonCk"]:checked + label::after {
 	background-color: #1B1003;
 	border-radius: 5px;
 }
+

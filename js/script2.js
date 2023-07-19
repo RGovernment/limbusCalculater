@@ -58,37 +58,17 @@ $(function(){
 	$("button[class^=effihardBtn]").on("click",function(){
 			let val = $(this).data("val");
 			
-			$(".hardNum").val(val);
-			if($(this).hasClass("off3")){
-				if(val == "1"){
-					$("#effihardNumber").text("1/3");
-				}else if(val == "2"){
-					$("#effihardNumber").text("2/3");
-					$(".effihardBtn1").removeClass("off3");
-				}else if(val =="3"){
-					$("#effihardNumber").text("3/3");
-					$(".effihardBtn1").removeClass("off3");
-					$(".effihardBtn2").removeClass("off3");
+				$(".hardNum").val(val);
+			if(val == "1"){
+				if($(this).hasClass("off3")){
+					$("#effihardNumber").text("1/1");
+					$(this).removeClass("off3");
 				}
-				
-				$(this).removeClass("off3");
-				
-				return;
 			}else{
-				if(val == "0"){
-					$("#effihardNumber").text("0/3");
-					$(".effihardBtn1").addClass("off3");
-					$(".effihardBtn2").addClass("off3");
-					$(".effihardBtn3").addClass("off3");
-				}else if(val == "1"){
-					$("#effihardNumber").text("1/3");
-					$(".effihardBtn2").addClass("off3");
-					$(".effihardBtn3").addClass("off3");
-				}else if(val == "2"){
-					$("#effihardNumber").text("2/3");
-					$(".effihardBtn3").addClass("off3");
-				}
+				$("#effihardNumber").text("0/1");
+				$(".effihardBtn1").addClass("off3");
 			}
+			
 	});	
 	
 	$("button[class^=effihardBtn]").on("click", function() {
@@ -123,6 +103,7 @@ $(function(){
 				$(".consumWeek").val(1);
 				
 				$("#resultBox2").removeClass("resize2");
+				$(".playExpVal").text("");
 				$("#textTitle2").text("");	
 				$(".playTotalVal").text("");
 				$(".playHardVal").text("");
@@ -304,100 +285,124 @@ $(function(){
 			console.log("A : " + count);
 			//보너스 존재 여부 확인
 			if (bonusNum > 0) {
+				
 				console.log("B : " + count);
+				nowExp = parseInt(nowExp);
+				count++;
+				console.log(typeof nowExp);
+
+				console.log(level2HardResult.normal);
+				console.log(25);
+				console.log(bonusNum);
+				nowExp += parseInt(level2HardResult.normal) + (25 * parseInt(bonusNum));
+				console.log(typeof nowExp);
+				needCost += level2HardCost;
+				playHard++;
+				if(nowExp >= needExp){
+					return result = {
+						countNum : count,
+						cost : needCost,
+						hard : playHard,
+						level2 : playLevel2,
+						level1 : playLevel1,
+						exp : nowExp
+					}
+				}
 				//보너스보다 하드 이용횟수가 많을 경우
-				if (hardNum > bonusNum) {
-					console.log("C : " + count);
-					for(let i =1; i<=bonusNum;i++){
-						count++;
-						playHard++;
-						nowExp += level2HardResult.bonus;
-						needCost += level2HardCost;
-
-						if(nowExp >= needExp){
-
-							return result = {
-								countNum : count, 
-								cost : needCost,
-								hard : playHard,
-								level2 : playLevel2,
-								level1 : playLevel1,
-								exp : nowExp
-							};
-						}	
-					}
+//				if (hardNum > bonusNum) {
+	
+	
 					
-					for(let i =1; i<= hardNum - bonusNum;i++){
-						count++;
-						playHard++;
-						nowExp += level2HardResult.normal;
-						needCost += level2HardCost;
+//					for(let i =1; i<=bonusNum;i++){
+//						count++;
+//						playHard++;
+//						nowExp += level2HardResult.bonus;
+//						needCost += level2HardCost;
+
+//						if(nowExp >= needExp){
+
+//							return result = {
+//								countNum : count, 
+//								cost : needCost,
+//								hard : playHard,
+//								level2 : playLevel2,
+//								level1 : playLevel1,
+//								exp : nowExp
+//							};
+//						}	
+//					}
+					
+//					for(let i =1; i<= hardNum - bonusNum;i++){
+//						count++;
+//						playHard++;
+//						nowExp += level2HardResult.normal;
+//						needCost += level2HardCost;
 						
-						if(nowExp >= needExp){
-							return result = {
-								countNum : count, 
-								cost : needCost,
-								hard : playHard,
-								level2 : playLevel2,
-								level1 : playLevel1,
-								exp : nowExp
-							};
-						}	
-					}
+//						if(nowExp >= needExp){
+//							return result = {
+//								countNum : count, 
+//								cost : needCost,
+//								hard : playHard,
+//								level2 : playLevel2,
+//								level1 : playLevel1,
+//								exp : nowExp
+//							};
+//						}	
+//					}
 	
 				//보너스보다 하드 이용횟수가 적을 경우
-				} else {
-					console.log("D : " + count);
-					for(let i =1; i<= bonusNum;i++){
-						count++;
-						playHard++;
-						nowExp += level2HardResult.bonus;
-						needCost += level2HardCost;
+//				} else {
+//					console.log("D : " + count);
+//				for(let i =1; i<= bonusNum;i++){
+//						count++;
+//						playHard++;
+//						nowExp += level2HardResult.bonus;
+//						needCost += level2HardCost;
 
-						if(nowExp >= needExp){
-							return result = {
-								countNum : count, 
-								cost : needCost,
-								hard : playHard,
-								level2 : playLevel2,
-								level1 : playLevel1,
-								exp : nowExp
-							};
-						}	
-					}
+//						if(nowExp >= needExp){
+//							return result = {
+//								countNum : count, 
+//								cost : needCost,
+//								hard : playHard,
+//								level2 : playLevel2,
+//								level1 : playLevel1,
+//								exp : nowExp
+//							};
+//						}	
+//					}
 					
-					remainBonus = bonusNum - hardNum;
+//					remainBonus = bonusNum - hardNum;
 
-				}
+//				}
 				
 				//하드에 소모 후 보너스 횟수가 남은 경우
-				if (remainBonus > 0) {
+//				if (remainBonus > 0) {
 				//	console.log("E : " + count);
-					for(let i =1; i<=remainBonus;i++){
-						count++;
-						playLevel2++;
-						nowExp += level2Result.bonus;
-						needCost += level2Cost;
+//					for(let i =1; i<=remainBonus;i++){
+//						count++;
+//						playLevel2++;
+//						nowExp += level2Result.bonus;
+//						needCost += level2Cost;
 						
-						if(nowExp >= needExp){
-							return result = {
-								countNum : count, 
-								cost : needCost,
-								hard : playHard,
-								level2 : playLevel2,
-								level1 : playLevel1,
-								exp : nowExp
-							};
-						}	
-					}
-				}
-				
-				for(let i =1+remainBonus; i<=actuNeedNum;i++){
+//						if(nowExp >= needExp){
+//							return result = {
+//								countNum : count, 
+//								cost : needCost,
+//								hard : playHard,
+//								level2 : playLevel2,
+//								level1 : playLevel1,
+//								exp : nowExp
+//							};
+//						}	
+//					}
+//				}
+
+				for(let i =1; i<=actuNeedNum;i++){
 					count++;
 					playLevel2++;
-					nowExp += level2Result.normal;
+					nowExp += parseInt(level2Result.normal);
 					needCost += level2Cost;
-					
+					console.log(nowExp);
 					if(nowExp >= needExp){
 						return result = {
 							countNum : count, 
@@ -411,24 +416,21 @@ $(function(){
 				}
 			}else{
 				
-				for(let i =1; i<= hardNum;i++){
-						count++;
-						playHard++;
-						nowExp += level2HardResult.normal;
-						needCost += level2HardCost;
-						
-						if(nowExp >= needExp){
-							return result = {
-								countNum : count, 
-								cost : needCost,
-								hard : playHard,
-								level2 : playLevel2,
-								level1 : playLevel1,
-								exp : nowExp
-							};
-						}	
-					}
+				count++;
+				playHard++;
+				nowExp += level2HardResult.normal;
+				needCost += level2HardCost;
 				
+					if(nowExp >= needExp){
+						return result = {
+							countNum : count, 
+							cost : needCost,
+							hard : playHard,
+							level2 : playLevel2,
+							level1 : playLevel1,
+							exp : nowExp
+						};
+					}		
 				
 				for(let i =1+remainBonus; i<=actuNeedNum;i++){
 					count++;
@@ -538,7 +540,7 @@ $(function(){
 				level1Text = "1렙 던전 예상 플레이 횟수 : " + value3.level1 +" ~ "+value.level1+"회 [ 평균 : "+ value2.level1 +"회 ]";
 			}
 			
-			if(value3.cost == value.level1){
+			if(value3.cost == value.cost){
 				enkeText = "엔케팔린 모듈 예상 소모량 : " + value3.cost +"개";
 			}else{
 				enkeText = "엔케팔린 모듈 예상 소모량 : " + value3.cost +" ~ "+value.cost+"개 [ 평균 : "+ value2.cost +"개 ]";
