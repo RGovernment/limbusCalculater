@@ -12,6 +12,4 @@
 
 ## 연락처
 
-**Twitter: [@R_Government](https://twitter.com/r_government)**
-
 **email : jjhs1215@naver.com**
